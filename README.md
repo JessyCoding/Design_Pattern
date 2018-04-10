@@ -1,11 +1,9 @@
 
-# Design_Pattern
+# Les design patterns expliqués aux enfants
 
   
 
 ### Histoire
-
-  
 
 Formalisés dans le livre du « Gang of Four » (GoF, Erich Gamma, Richard Helm, Ralph Johnson (en) et John Vlissides (en)) intitulé Design Patterns – Elements of Reusable Object-Oriented Software en 1995. Les patrons de conception tirent leur origine des travaux de l'architecte Christopher Alexander dans les années 70, dont son livre A Pattern Language définit un ensemble de patrons d'architecture.
 
