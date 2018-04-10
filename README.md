@@ -1,6 +1,4 @@
-# Design_Pattern
-
-  
+# Design patterns
 
 ### Histoire
 
