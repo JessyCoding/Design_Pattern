@@ -114,7 +114,6 @@ class BookAdapter {
   function writeln($line_in) {
     echo $line_in."<br/>";
   }
-
 ```  
 
 ##### Bridge:
@@ -1173,7 +1172,55 @@ $editor->getContent(); // This is the first sentence. This is second.
 
 Ce patron permet d'économiser les temps d'instanciation et de suppression lorsque de nombreux objets ont une courte durée d'utilisation. Il consiste à administrer une collection d'objets qui peuvent être recyclés. Une méthode du Pool délivre un objet soit par une nouvelle instanciation, soit par recyclage d'un objet périmé. Lorsque les objets arrivent à la fin de leur cycle de vie, ils sont remis à la disposition du Pool pour un futur recyclage. Dans la phase d'instanciation, le Pool peut instancier plus d'un objet à la fois si l'algorithme d'instanciation a une complexité meilleure que O(n). Le patron Object Pool est particulièrement utile lorsque le nombre total de cycles de vie est très grand devant le nombre d'instances à un moment précis et que les opérations d'instanciation et/ou suppression sont coûteuses en temps d'exécution par rapport à leur recyclage.
 
-  
+```php
+class ObjectPool
+{
+    /** @var array instances d'objets réutilisables */
+    private $instances = [];
+
+    /**
+     * Obtenir l'objet des instances.
+     *
+     * @param string $key Key pour récupérer l'instance.
+     *
+     * @return ReusableObject
+     */
+    public function get($key)
+    {
+        return $this->instances[$key];
+    }
+
+    /**
+     * Ajouter un objet à la liste des instances.
+     *
+     * @param ReusableObject
+     */
+     public function add($object, $key)
+     {
+         $this->instances[$key] = $object;
+     }
+}
+
+class ReusableObject
+{
+    /**
+     * une classe.
+     */
+    public function doSomething()
+    {
+        // ...
+    }
+}
+
+//  Code du client 
+$pool = new ObjectPool();
+$reusableObject = new ReusableObject();
+$pool->add($reusableObject, 'reusable_object_key')
+
+$reusableObject = $pool->get('reusable_object_key');
+$reusableObject->doSomething();
+
+```  
 
 ##### Observer:
 
